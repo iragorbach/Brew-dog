@@ -27,7 +27,7 @@
     return response.json();
     }).then(function(result) {
         document.getElementById('beer-info').innerHTML = '<div class="col-md-12">' + 
-        '<img style="max-height: 400px;" src=' + result[0].image_url + '>' + '</div>'
+        '<img style="max-height: 400px;" src=' + result[0].image_url + '>' + '<p>' + result[0].description + '</p>' + '</div>'
    })
 
   </script>
