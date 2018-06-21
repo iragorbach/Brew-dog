@@ -1,8 +1,10 @@
-import {view} from '../view/main.view';
+import {view} from '../view/beer.view';
 
 export default class MainController {
-    constructor() {
-        this.render();
+
+    static init() {
+        let self = new this;
+        self.render();
     };
 
     render() {
