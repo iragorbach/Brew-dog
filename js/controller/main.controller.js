@@ -1,4 +1,4 @@
-import {view} from '../view/beer.view';
+import {view} from '../view/main.view';
 
 export default class MainController {
 

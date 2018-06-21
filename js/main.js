@@ -1,5 +1,5 @@
 import MainController from './controller/main.controller';
-import BeerController from "./controller/beer.controller";
+import BeerController from './controller/beer.controller';
 
 const imports = [
     MainController,
