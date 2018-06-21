@@ -1,0 +1,1 @@
+export let view = '<div class="beer">Beer</div>';
