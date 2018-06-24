@@ -1,0 +1,24 @@
+{
+  "name": "brew-dog",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "webpack --mode=development"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/iragorbach/Brew-dog.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/iragorbach/Brew-dog/issues"
+  },
+  "homepage": "https://github.com/iragorbach/Brew-dog#readme",
+  "dependencies": {
+    "webpack": "^4.12.1",
+    "webpack-cli": "^3.0.8"
+  }
+}
