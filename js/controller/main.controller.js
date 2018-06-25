@@ -1,17 +1,25 @@
 import {renderView} from "../view/main.view";
+import {BeerController} from "./beer.controller";
+
+let self;
+let beerController;
+
+const url = 'https://api.punkapi.com/v2/beers';
 
 export class MainController {
     static init() {
-        let self = new this;
+        self = new this;
+        beerController = new BeerController();
         self.getItems();
     };
 
     getItems() {
-        const url = 'https://api.punkapi.com/v2/beers';
-
+        document.getElementById('beer-container').innerHTML = '<img src="assets/loader.gif">';
         fetch(url).then(function(response) {
             return response.json();
         }).then(function(result) {
+            document.getElementById('beer-container').innerHTML = '';
+
             for(let i = 0; i < result.length; i++){
                 document.getElementById('beer-container').innerHTML += renderView({
                     id: result[i].id,
@@ -20,6 +28,7 @@ export class MainController {
                     tagline: result[i].tagline
                 });
             }
+            beerController.setClickFunc();
         });
     };
 }

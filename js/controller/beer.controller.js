@@ -1,32 +1,32 @@
 import {renderBeer} from "../view/beer.view";
 
+const idUrl = "https://api.punkapi.com/v2/beers/";
 
 export class BeerController {
     static init() {
         console.log('Beer controller');
-         let elements = document.getElementsByClassName('beer-item');
-         console.log(elements);
+    };
+
+    setClickFunc() {
+        let elements = document.getElementsByClassName('beer-item');
+
         [].forEach.call(elements, function (elem) {
-            elem.onclick = function () {
-                console.log('asdasdasd');
-            }
-        })
-    }
-    getBeer() {
+            elem.addEventListener('click', function () {
+                let beersId = this;
+                let beerId = beersId.dataset.id;
 
-        let strGET = window.location.search.replace( '?id=', '');
+                document.getElementById('beer-container').innerHTML = '<img src="assets/loader.gif">';
 
-        const idUrl = "https://api.punkapi.com/v2/beers/" + strGET;
+                fetch(idUrl + beerId).then(function(response) {
+                    return response.json();
+                }).then(function(result) {
+                    document.getElementById('beer-container').innerHTML = renderBeer({
+                        img: result[0].image_url,
+                        beer: result[0].description
+                    })
+                })
+            });
+        });
+    };
 
-        console.log(idUrl);
-
-        fetch(idUrl).then(function(response) {
-            return response.json();
-        }).then(function(result) {
-            document.getElementById('beer-info').innerHTML = renderBeer({
-                img: result[0].img_url,
-                beer: result[0].description
-            })
-        })
-    }
 }
